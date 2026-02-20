@@ -29,10 +29,10 @@ const EditOrder = () => {
         const fetchOrder = async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/orders/${id}`,
+                    `http://green-shop.test/api/orders/${id}`,
                     {
                         withCredentials: true,
-                    }
+                    },
                 );
                 setOrderData(response.data); // Store fetched order data
                 setLoading(false);
@@ -64,7 +64,7 @@ const EditOrder = () => {
                     product_id: item.product_id,
                     quantity: item.quantity,
                     price: item.price,
-                }))
+                })),
             );
         }
     }, [orderData, users, setValue]); // Depends on orderData and users
@@ -83,15 +83,15 @@ const EditOrder = () => {
         }
 
         data.items = items.filter(
-            (item) => item.product_id && item.quantity > 0
+            (item) => item.product_id && item.quantity > 0,
         );
 
         try {
-            await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
 
-            await axios.put(`http://127.0.0.1:8000/api/orders/${id}`, data, {
+            await axios.put(`http://green-shop.test/api/orders/${id}`, data, {
                 withCredentials: true,
             });
 
@@ -205,7 +205,7 @@ const EditOrder = () => {
                                                     <option
                                                         key={parseInt(user.id)}
                                                         value={parseInt(
-                                                            user.id
+                                                            user.id,
                                                         )}
                                                     >
                                                         {user.name}

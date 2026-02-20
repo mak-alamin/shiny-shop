@@ -50,9 +50,13 @@ table form {
 }
 
 /* Admin */
+.sidebar ul li a {
+    color: #f5f5f5;
+}
 .sidebar ul li a.active {
-    background: #243a48;
+    background: #008166;
     border-radius: 3px;
+    color: #fff;
 }
 .categories form {
     width: 25%;

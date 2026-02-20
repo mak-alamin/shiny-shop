@@ -3,6 +3,7 @@ import daisyui from "daisyui";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
+
 export default {
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
@@ -26,17 +27,17 @@ export default {
                     dark: "#2F4858",
                     light: "rgb(240 247 255)",
                 },
-                 brandGreen: {
-                    50: "#E7F4EC",
-                    100: "#CDEAD9",
-                    200: "#A0D4B3",
-                    300: "#72BE8D",
-                    400: "#4BA86C",
-                    500: "#1F763B", // Base
-                    600: "#196633",
-                    700: "#13532A",
-                    800: "#0E4021",
-                    900: "#0A2D18",
+                brandGreen: {
+                    50: "#E0F2F0", // Ultra-light tint for backgrounds
+                    100: "#B3DFD8", // Soft highlight
+                    200: "#80C9BD", // Muted secondary
+                    300: "#4DB3A2", // Vibrant secondary
+                    400: "#269A84", // Strong UI element
+                    500: "#008166", // Base Color
+                    600: "#00735B", // Hover states
+                    700: "#00614D", // Active/Focus states
+                    800: "#004F3F", // Deep contrast
+                    900: "#003A2E", // Near-black forest green
                 },
                 customGray: {
                     100: "#F5F7F5",
@@ -48,7 +49,7 @@ export default {
                     700: "#424242",
                     800: "#2D2D2D",
                     900: "#1A1A1A",
-                }
+                },
             },
         },
         container: {

@@ -14,15 +14,15 @@ const Orders = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+                await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
                     withCredentials: true,
                 });
 
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/api/orders",
+                    "http://green-shop.test/api/orders",
                     {
                         withCredentials: true,
-                    }
+                    },
                 );
                 setOrders(response.data.data || response.data);
                 setLoading(false);
@@ -38,7 +38,7 @@ const Orders = () => {
         e.preventDefault();
         if (window.confirm("Are you sure you want to delete this order?")) {
             try {
-                await axios.delete(`http://127.0.0.1:8000/api/orders/${id}`, {
+                await axios.delete(`http://green-shop.test/api/orders/${id}`, {
                     withCredentials: true,
                 });
                 setOrders(orders.filter((order) => order.id !== id));
@@ -108,14 +108,14 @@ const Orders = () => {
                                         <td>
                                             {order.created_at
                                                 ? new Date(
-                                                      order.created_at
+                                                      order.created_at,
                                                   ).toLocaleDateString(
                                                       "en-US",
                                                       {
                                                           day: "2-digit",
                                                           month: "long",
                                                           year: "numeric",
-                                                      }
+                                                      },
                                                   )
                                                 : ""}
                                         </td>

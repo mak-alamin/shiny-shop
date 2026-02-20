@@ -31,15 +31,15 @@ const AddUser = () => {
         setLoading(true);
         setValidationErrors({});
         try {
-            await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/users",
+                "http://green-shop.test/api/users",
                 data,
                 {
                     withCredentials: true,
-                }
+                },
             );
             setSuccess(true);
             reset();
@@ -177,15 +177,14 @@ const AddUser = () => {
                                             ? messages.join(" ")
                                             : messages}
                                     </p>
-                                )
+                                ),
                             )}
                         </div>
                     )}
                     <input
                         type="submit"
-                        className="text-white btn btn-soft btn-info my-4 max-w-48"
+                        className="text-white bg-brandGreen-600 btn my-4 max-w-48"
                         value={loading ? "Adding..." : "Add User"}
-                        disabled={loading}
                     />
                 </form>
                 {loading && <Loader />}

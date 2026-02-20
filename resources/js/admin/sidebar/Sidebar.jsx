@@ -62,7 +62,7 @@ const Sidebar = () => {
 
     // Render the sidebar with the links
     return (
-        <div className="sidebar w-1/6 bg-[#2f4858] p-4">
+        <div className="sidebar w-1/6 bg-brandGreen-400 p-4">
             <ul>
                 {routeLinks}
 

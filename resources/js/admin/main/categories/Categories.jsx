@@ -15,14 +15,14 @@ const Categories = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/categories",
+                "http://green-shop.test/api/categories",
                 {
                     name,
                     parent_id: parentId,
                 },
                 {
                     withCredentials: true,
-                }
+                },
             );
 
             setSuccess(true);
@@ -46,7 +46,10 @@ const Categories = () => {
                 style={{ paddingLeft: itemPaddingLeft }}
                 className={liClasses}
             >
-                <div className="flex items-center gap-2 group px-2 py-1 hover:bg-slate-200"  style={{ width: "max-content" }}>
+                <div
+                    className="flex items-center gap-2 group px-2 py-1 hover:bg-slate-200"
+                    style={{ width: "max-content" }}
+                >
                     {level > 0 && "-"}
                     <span>{cat.name}</span>
                     <div className="action-buttons ml-2 hidden group-hover:flex items-center gap-1">
@@ -81,10 +84,10 @@ const Categories = () => {
         const option = [
             <option key={cat.id} value={cat.id}>
                 {prefix + cat.name}
-            </option>
+            </option>,
         ];
         if (cat.children && cat.children.length > 0) {
-            cat.children.forEach(child => {
+            cat.children.forEach((child) => {
                 option.push(...renderOptions(child, prefix + "- "));
             });
         }
@@ -115,18 +118,21 @@ const Categories = () => {
                         value={parentId || ""}
                         onChange={(e) =>
                             setParentId(
-                                e.target.value ? Number(e.target.value) : null
+                                e.target.value ? Number(e.target.value) : null,
                             )
                         }
                         className="input bg-base-light w-full"
                     >
                         <option value="">None</option>
                         {/* Use flat list for parent selection */}
-                        {categoryTree.map(cat => renderOptions(cat))}
+                        {categoryTree.map((cat) => renderOptions(cat))}
                     </select>
                 </label>
 
-                <button type="submit" className="bg-blue-500 text-white p-2 mb-4 rounded">
+                <button
+                    type="submit"
+                    className="bg-blue-500 text-white p-2 mb-4 rounded"
+                >
                     Create Category
                 </button>
 

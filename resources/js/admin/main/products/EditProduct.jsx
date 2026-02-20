@@ -32,7 +32,7 @@ const EditProduct = () => {
             setLoading(true);
             try {
                 const res = await axios.get(
-                    `http://127.0.0.1:8000/api/products/${id}`
+                    `http://green-shop.test/api/products/${id}`,
                 );
                 const product = res.data;
 
@@ -48,10 +48,10 @@ const EditProduct = () => {
                 // Handle images
                 if (product.images && product.images.length > 0) {
                     const primary = product.images.find(
-                        (img) => img.is_primary
+                        (img) => img.is_primary,
                     );
                     setImagePreview(
-                        primary ? `/storage/${primary.image_url}` : null
+                        primary ? `/storage/${primary.image_url}` : null,
                     );
                     const gallery = product.images
                         .filter((img) => !img.is_primary)
@@ -65,7 +65,9 @@ const EditProduct = () => {
                 // Set selected categories from product.categories (array of category objects or ids)
                 if (product.categories) {
                     setSelectedCategories(
-                        product.categories.map((cat) => (cat.id ? cat.id : cat))
+                        product.categories.map((cat) =>
+                            cat.id ? cat.id : cat,
+                        ),
                     );
                 }
             } catch (err) {
@@ -93,7 +95,7 @@ const EditProduct = () => {
         setSelectedCategories((prev) =>
             prev.includes(id)
                 ? prev.filter((catId) => catId !== id)
-                : [...prev, id]
+                : [...prev, id],
         );
     };
 
@@ -161,7 +163,7 @@ const EditProduct = () => {
         // Handle gallery images
         if (data.gallery && data.gallery.length > 0) {
             const galleryFiles = Array.from(data.gallery).filter(
-                (file) => file instanceof File
+                (file) => file instanceof File,
             );
             if (galleryFiles.length > 0) {
                 galleryFiles.forEach((file) => {
@@ -190,7 +192,7 @@ const EditProduct = () => {
 
         // Get CSRF token
         try {
-            await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
         } catch (err) {
@@ -199,14 +201,14 @@ const EditProduct = () => {
 
         try {
             const response = await axios.post(
-                `http://127.0.0.1:8000/api/products/${id}`,
+                `http://green-shop.test/api/products/${id}`,
                 formData,
                 {
                     withCredentials: true,
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
-                }
+                },
             );
 
             console.log("Product updated successfully:", response.data);
@@ -459,7 +461,7 @@ const EditProduct = () => {
                                             ? messages.join(" ")
                                             : messages}
                                     </p>
-                                )
+                                ),
                             )}
                         </div>
                     )}

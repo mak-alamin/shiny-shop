@@ -5,9 +5,9 @@ import axios from "../../../auth/axios";
 import useUsers from "../../../hooks/useUsers";
 
 const Customers = () => {
-     const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
-    const [users, setUsers] = useUsers('customers');
+    const [users, setUsers] = useUsers("customers");
 
     const handleDelete = async (e, id) => {
         e.preventDefault();
@@ -16,7 +16,7 @@ const Customers = () => {
         }
         setLoading(true);
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/users/${id}`, {
+            await axios.delete(`http://green-shop.test/api/users/${id}`, {
                 withCredentials: true,
             });
             setUsers((prev) => prev.filter((user) => user.id !== id));
@@ -83,7 +83,7 @@ const Customers = () => {
                                                 ? user.role
                                                       .replace(/_/g, " ")
                                                       .replace(/\b\w/g, (c) =>
-                                                          c.toUpperCase()
+                                                          c.toUpperCase(),
                                                       )
                                                 : ""}
                                         </td>

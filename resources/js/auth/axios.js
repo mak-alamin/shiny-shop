@@ -1,7 +1,7 @@
 // axios.ts or auth.ts
-import axios from 'axios';
+import axios from "axios";
 
+axios.defaults.baseURL = "http://green-shop.test"; // 'http://green-shop.test'; // Change to your Laravel API
 axios.defaults.withCredentials = true; // Send cookies with requests
-axios.defaults.baseURL = 'http://127.0.0.1:8000'; // Change to your Laravel API
 
 export default axios;

@@ -40,7 +40,7 @@ const AddProduct = () => {
         setSelectedCategories((prev) =>
             prev.includes(id)
                 ? prev.filter((catId) => catId !== id)
-                : [...prev, id]
+                : [...prev, id],
         );
     };
 
@@ -98,12 +98,12 @@ const AddProduct = () => {
 
         console.log(formData);
 
-        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+        await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
             withCredentials: true,
         });
 
         try {
-            await axios.post("http://127.0.0.1:8000/api/products", formData, {
+            await axios.post("http://green-shop.test/api/products", formData, {
                 withCredentials: true,
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -156,7 +156,7 @@ const AddProduct = () => {
                     method="post"
                     className="item-add-form p-3"
                     onSubmit={handleSubmit((data) =>
-                        onSubmit({ ...data, categories: selectedCategories })
+                        onSubmit({ ...data, categories: selectedCategories }),
                     )}
                     encType="multipart/form-data"
                 >
@@ -350,7 +350,7 @@ const AddProduct = () => {
 
                     <input
                         type="submit"
-                        className="text-white btn btn-soft btn-info my-4 max-w-48"
+                        className="text-white btn bg-brandGreen-500 my-4 max-w-48"
                         value="Add Product"
                     />
                 </form>

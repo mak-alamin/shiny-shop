@@ -1,17 +1,17 @@
 {
-  "_router-CAd-Ykae.js": {
-    "file": "assets/router-CAd-Ykae.js",
+  "_router-BkVxfooy.js": {
+    "file": "assets/router-BkVxfooy.js",
     "name": "router",
     "imports": [
-      "_vendor-nf7bT_Uh.js"
+      "_vendor-BStAX1aO.js"
     ]
   },
-  "_vendor-nf7bT_Uh.js": {
-    "file": "assets/vendor-nf7bT_Uh.js",
+  "_vendor-BStAX1aO.js": {
+    "file": "assets/vendor-BStAX1aO.js",
     "name": "vendor"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C3sS6Yce.css",
+    "file": "assets/app-pS44zJZK.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -20,16 +20,16 @@
     "src": "resources/images/Logo.png"
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-2y75wGGU.js",
+    "file": "assets/app-CFStZgTm.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "imports": [
-      "_vendor-nf7bT_Uh.js",
-      "_router-CAd-Ykae.js"
+      "_vendor-BStAX1aO.js",
+      "_router-BkVxfooy.js"
     ],
     "css": [
-      "assets/app-C3sS6Yce.css"
+      "assets/app-pS44zJZK.css"
     ],
     "assets": [
       "assets/Logo-BsElgYno.png"

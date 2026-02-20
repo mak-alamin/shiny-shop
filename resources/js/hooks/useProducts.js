@@ -9,10 +9,10 @@ const useProducts = () => {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/api/products",
+                    "http://green-shop.test/api/products",
                     {
                         withCredentials: true,
-                    }
+                    },
                 );
 
                 setProducts(response.data.data || response.data);

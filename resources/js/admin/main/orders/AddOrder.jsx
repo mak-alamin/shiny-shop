@@ -43,10 +43,15 @@ const AddOrder = () => {
               }))
         : [];
 
-    const [items, setItems] = useState([{ product_id: null, quantity: 1, price: null }]);
+    const [items, setItems] = useState([
+        { product_id: null, quantity: 1, price: null },
+    ]);
 
     const handleAddItem = () => {
-        setItems((prev) => [...prev, { product_id: null, quantity: 1, price: null }]);
+        setItems((prev) => [
+            ...prev,
+            { product_id: null, quantity: 1, price: null },
+        ]);
     };
 
     const onSubmit = async (data) => {
@@ -58,20 +63,20 @@ const AddOrder = () => {
         }
 
         data.items = items.filter(
-            (item) => item.product_id && item.quantity > 0
+            (item) => item.product_id && item.quantity > 0,
         );
 
         try {
-            await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
 
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/orders",
+                "http://green-shop.test/api/orders",
                 data,
                 {
                     withCredentials: true,
-                }
+                },
             );
 
             setSuccess(true);

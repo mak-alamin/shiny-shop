@@ -12,7 +12,7 @@ const Products = () => {
     const getPrimaryImageUrl = (images) => {
         const primary = images?.find((img) => img.is_primary);
         return primary
-            ? `http://127.0.0.1:8000/storage/${primary.image_url}`
+            ? `http://green-shop.test/storage/${primary.image_url}`
             : null;
     };
 
@@ -23,7 +23,7 @@ const Products = () => {
         }
         setLoading(true);
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/products/${id}`, {
+            await axios.delete(`http://green-shop.test/api/products/${id}`, {
                 withCredentials: true,
             });
             setProducts((prev) => prev.filter((product) => product.id !== id));
@@ -49,7 +49,7 @@ const Products = () => {
 
                 <Link
                     to="/dashboard/products/add"
-                    className="bg-blue-500 px-4 py-2 rounded-full text-white"
+                    className="bg-brandGreen-500 px-4 py-2 rounded-full text-white"
                 >
                     Add New Product
                 </Link>
@@ -93,7 +93,7 @@ const Products = () => {
                             ) : (
                                 products.map((product) => {
                                     const imageUrl = getPrimaryImageUrl(
-                                        product.images || []
+                                        product.images || [],
                                     );
                                     return (
                                         <tr key={product.id}>
@@ -113,19 +113,19 @@ const Products = () => {
                                                 {product?.price
                                                     ? "$" +
                                                       parseFloat(
-                                                          product.price
+                                                          product.price,
                                                       ).toFixed(2)
                                                     : "N/A"}
                                             </td>
                                             <td>{product.stock}</td>
                                             <td>
                                                 {Array.isArray(
-                                                    product.categories
+                                                    product.categories,
                                                 ) &&
                                                 product.categories.length > 0
                                                     ? product.categories
                                                           .map(
-                                                              (cat) => cat.name
+                                                              (cat) => cat.name,
                                                           )
                                                           .join(", ")
                                                     : "-"}
@@ -156,7 +156,7 @@ const Products = () => {
                                                     onClick={(e) =>
                                                         handleDelete(
                                                             e,
-                                                            product.id
+                                                            product.id,
                                                         )
                                                     }
                                                     className="delete"

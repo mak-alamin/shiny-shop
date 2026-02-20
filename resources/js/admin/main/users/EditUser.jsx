@@ -35,7 +35,7 @@ const EditUser = () => {
             setLoading(true);
             try {
                 const res = await axios.get(
-                    `http://127.0.0.1:8000/api/users/${id}`
+                    `http://green-shop.test/api/users/${id}`,
                 );
                 const user = res.data;
 
@@ -77,7 +77,7 @@ const EditUser = () => {
 
         // Get CSRF token
         try {
-            await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
         } catch (err) {
@@ -86,14 +86,14 @@ const EditUser = () => {
 
         try {
             const response = await axios.post(
-                `http://127.0.0.1:8000/api/users/${id}`,
+                `http://green-shop.test/api/users/${id}`,
                 formData,
                 {
                     withCredentials: true,
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
-                }
+                },
             );
 
             console.log("User updated successfully:", response.data);
@@ -239,7 +239,7 @@ const EditUser = () => {
                                             ? messages.join(" ")
                                             : messages}
                                     </p>
-                                )
+                                ),
                             )}
                         </div>
                     )}

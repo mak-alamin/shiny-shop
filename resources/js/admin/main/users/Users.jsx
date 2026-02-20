@@ -16,7 +16,7 @@ const Users = () => {
         }
         setLoading(true);
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/users/${id}`, {
+            await axios.delete(`http://green-shop.test/api/users/${id}`, {
                 withCredentials: true,
             });
             setUsers((prev) => prev.filter((user) => user.id !== id));
@@ -90,7 +90,7 @@ const Users = () => {
                                                 ? user.role
                                                       .replace(/_/g, " ")
                                                       .replace(/\b\w/g, (c) =>
-                                                          c.toUpperCase()
+                                                          c.toUpperCase(),
                                                       )
                                                 : ""}
                                         </td>
