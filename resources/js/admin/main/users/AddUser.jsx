@@ -31,11 +31,11 @@ const AddUser = () => {
         setLoading(true);
         setValidationErrors({});
         try {
-            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+            await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
             const response = await axios.post(
-                "http://green-shop.test/api/users",
+                "http://localhost:8000/api/users",
                 data,
                 {
                     withCredentials: true,

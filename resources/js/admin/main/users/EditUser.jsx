@@ -35,7 +35,7 @@ const EditUser = () => {
             setLoading(true);
             try {
                 const res = await axios.get(
-                    `http://green-shop.test/api/users/${id}`,
+                    `http://localhost:8000/api/users/${id}`,
                 );
                 const user = res.data;
 
@@ -77,7 +77,7 @@ const EditUser = () => {
 
         // Get CSRF token
         try {
-            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+            await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
         } catch (err) {
@@ -86,7 +86,7 @@ const EditUser = () => {
 
         try {
             const response = await axios.post(
-                `http://green-shop.test/api/users/${id}`,
+                `http://localhost:8000/api/users/${id}`,
                 formData,
                 {
                     withCredentials: true,

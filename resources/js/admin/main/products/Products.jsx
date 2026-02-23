@@ -12,7 +12,7 @@ const Products = () => {
     const getPrimaryImageUrl = (images) => {
         const primary = images?.find((img) => img.is_primary);
         return primary
-            ? `http://green-shop.test/storage/${primary.image_url}`
+            ? `http://localhost:8000/storage/${primary.image_url}`
             : null;
     };
 
@@ -23,7 +23,7 @@ const Products = () => {
         }
         setLoading(true);
         try {
-            await axios.delete(`http://green-shop.test/api/products/${id}`, {
+            await axios.delete(`http://localhost:8000/api/products/${id}`, {
                 withCredentials: true,
             });
             setProducts((prev) => prev.filter((product) => product.id !== id));

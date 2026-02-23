@@ -15,7 +15,7 @@ const Categories = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://green-shop.test/api/categories",
+                "http://localhost:8000/api/categories",
                 {
                     name,
                     parent_id: parentId,

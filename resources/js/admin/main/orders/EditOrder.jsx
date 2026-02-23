@@ -29,7 +29,7 @@ const EditOrder = () => {
         const fetchOrder = async () => {
             try {
                 const response = await axios.get(
-                    `http://green-shop.test/api/orders/${id}`,
+                    `http://localhost:8000/api/orders/${id}`,
                     {
                         withCredentials: true,
                     },
@@ -87,11 +87,11 @@ const EditOrder = () => {
         );
 
         try {
-            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+            await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
 
-            await axios.put(`http://green-shop.test/api/orders/${id}`, data, {
+            await axios.put(`http://localhost:8000/api/orders/${id}`, data, {
                 withCredentials: true,
             });
 

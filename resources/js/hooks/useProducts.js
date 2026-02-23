@@ -9,7 +9,7 @@ const useProducts = () => {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get(
-                    "http://green-shop.test/api/products",
+                    "http://localhost:8000/api/products",
                     {
                         withCredentials: true,
                     },

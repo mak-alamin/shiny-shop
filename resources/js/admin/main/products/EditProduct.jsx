@@ -32,7 +32,7 @@ const EditProduct = () => {
             setLoading(true);
             try {
                 const res = await axios.get(
-                    `http://green-shop.test/api/products/${id}`,
+                    `http://localhost:8000/api/products/${id}`,
                 );
                 const product = res.data;
 
@@ -192,7 +192,7 @@ const EditProduct = () => {
 
         // Get CSRF token
         try {
-            await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+            await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                 withCredentials: true,
             });
         } catch (err) {
@@ -201,7 +201,7 @@ const EditProduct = () => {
 
         try {
             const response = await axios.post(
-                `http://green-shop.test/api/products/${id}`,
+                `http://localhost:8000/api/products/${id}`,
                 formData,
                 {
                     withCredentials: true,

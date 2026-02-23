@@ -8,12 +8,12 @@ const useUsers = (route = "users") => {
         const fetchUsers = async () => {
             try {
                 // Call Sanctum CSRF endpoint first
-                await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+                await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                     withCredentials: true,
                 });
 
                 const response = await axios.get(
-                    "http://green-shop.test/api/" + route,
+                    "http://localhost:8000/api/" + route,
                     {
                         withCredentials: true,
                     },

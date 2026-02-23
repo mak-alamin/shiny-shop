@@ -14,12 +14,12 @@ const Orders = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+                await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                     withCredentials: true,
                 });
 
                 const response = await axios.get(
-                    "http://green-shop.test/api/orders",
+                    "http://localhost:8000/api/orders",
                     {
                         withCredentials: true,
                     },
@@ -38,7 +38,7 @@ const Orders = () => {
         e.preventDefault();
         if (window.confirm("Are you sure you want to delete this order?")) {
             try {
-                await axios.delete(`http://green-shop.test/api/orders/${id}`, {
+                await axios.delete(`http://localhost:8000/api/orders/${id}`, {
                     withCredentials: true,
                 });
                 setOrders(orders.filter((order) => order.id !== id));

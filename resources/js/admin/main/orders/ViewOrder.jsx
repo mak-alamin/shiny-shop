@@ -14,7 +14,7 @@ const ViewOrder = () => {
         const fetchOrder = async () => {
             try {
                 const response = await axios.get(
-                    `http://green-shop.test/api/orders/${id}`,
+                    `http://localhost:8000/api/orders/${id}`,
                     {
                         withCredentials: true,
                     },

@@ -16,7 +16,7 @@ const Customers = () => {
         }
         setLoading(true);
         try {
-            await axios.delete(`http://green-shop.test/api/users/${id}`, {
+            await axios.delete(`http://localhost:8000/api/users/${id}`, {
                 withCredentials: true,
             });
             setUsers((prev) => prev.filter((user) => user.id !== id));

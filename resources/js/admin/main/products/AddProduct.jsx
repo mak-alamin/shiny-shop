@@ -98,12 +98,12 @@ const AddProduct = () => {
 
         console.log(formData);
 
-        await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+        await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
             withCredentials: true,
         });
 
         try {
-            await axios.post("http://green-shop.test/api/products", formData, {
+            await axios.post("http://localhost:8000/api/products", formData, {
                 withCredentials: true,
                 headers: {
                     "Content-Type": "multipart/form-data",

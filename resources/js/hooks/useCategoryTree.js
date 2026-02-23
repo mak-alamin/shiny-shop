@@ -8,11 +8,11 @@ function useCategoryTree() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                await axios.get("http://green-shop.test/sanctum/csrf-cookie", {
+                await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
                     withCredentials: true,
                 });
                 const response = await axios.get(
-                    "http://green-shop.test/api/categories",
+                    "http://localhost:8000/api/categories",
                     {
                         withCredentials: true,
                     },
